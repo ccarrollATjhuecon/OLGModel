@@ -1,0 +1,919 @@
+<!DOCTYPE html> 
+<html lang="en" xml:lang="en" > 
+<head>
+  <title></title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="OLGModel.css" /> 
+<meta name="src" content="OLGModel.tex"> 
+</head><body 
+>
+<!--l. 6--><p class="noindent" ><img 
+src="OLGModel0x.svg" alt="© " class="math";align="absmiddle"><span 
+class="ecrm-0600">September 26, 2022, </span><a 
+href="https://www.econ2.jhu.edu/people/ccarroll/" ><span 
+class="ecrm-0600">Christopher D. Carroll</span></a>                                                                                                  <a 
+href="https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes" ><span 
+class="ecrm-0600">OLGModel</span></a>
+  <div  
+class="centerline">                                <span 
+class="ecrm-2074">The Diamond (1965) OLG Model</span>             </div>
+<!--l. 14--><p class="indent" >  <span 
+class="ecrm-1440">This handout and the associated Jupyter notebook, </span><a 
+href="https://econ-ark.org/materials/diamondolg?launch" ><span 
+class="ecrm-1440">DiamondOLG</span></a><span 
+class="ecrm-1440">,</span>
+<span 
+class="ecrm-1440">present a canonical overlapping generations (OLG) model, like</span>
+<span 
+class="ecrm-1440">the one originally proposed by </span><a 
+href="#Xdiamond:olg"><span 
+class="ecrm-1440">Diamond</span></a><span 
+class="ecrm-1440"> (</span><a 
+href="#Xdiamond:olg"><span 
+class="ecrm-1440">1965</span></a><span 
+class="ecrm-1440">), building on</span>
+<a 
+href="#Xsamuelson:olg"><span 
+class="ecrm-1440">Samuelson</span></a><span 
+class="ecrm-1440"> (</span><a 
+href="#Xsamuelson:olg"><span 
+class="ecrm-1440">1958</span></a><span 
+class="ecrm-1440">).</span><span class="footnote-mark"><a 
+href="OLGModel2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-2f1"></a>  
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">1  </span></span> <a 
+ id="x1-10001"></a><span 
+class="ecrm-1440">Setup</span></h3>
+<!--l. 18--><p class="noindent" ><span 
+class="ecrm-1440">The economy has the following features:</span>
+      <ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-1002x1"><span 
+class="ecrm-1440">Two generations are alive at any point in time, the young (age 1) and</span>
+      <span 
+class="ecrm-1440">old (age 2).</span>
+      </li>
+      <li 
+  class="enumerate" id="x1-1004x2"><span 
+class="ecrm-1440">The size of the </span><span 
+class="ecti-1440">young </span><span 
+class="ecrm-1440">generation in period</span> <img 
+src="OLGModel1x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is given by</span>  <img 
+src="OLGModel2x.svg" alt="NNN   =  NNN   Ξt
+   t      0  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+      </li>
+      <li 
+  class="enumerate" id="x1-1006x3"><span 
+class="ecrm-1440">Households work only in the ﬁrst period of life, earning income</span> <img 
+src="OLGModel3x.svg" alt="Y1,t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+      <span 
+class="ecrm-1440">They earn no income in the second period of life (</span><img 
+src="OLGModel4x.svg" alt="Y2,t+1 =  0  " class="math";align="absmiddle"><span 
+class="ecrm-1440">).</span>
+      </li>
+      <li 
+  class="enumerate" id="x1-1008x4"><span 
+class="ecrm-1440">They consume part of their ﬁrst-period income and save the rest to</span>
+      <span 
+class="ecrm-1440">ﬁnance their consumption when old.</span>
+      </li>
+      <li 
+  class="enumerate" id="x1-1010x5"><span 
+class="ecrm-1440">The assets of the young at the end of period</span> <img 
+src="OLGModel5x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">are the source of the</span>
+      <span 
+class="ecrm-1440">capital used for aggregate production in period</span> <img 
+src="OLGModel6x.svg" alt="t + 1  " class="math";align="absmiddle"><span 
+class="ecrm-1440">,</span> <img 
+src="OLGModel7x.svg" alt="K     =  NNN  a
+  t+1      t  1,t  " class="math";align="absmiddle">
+      <span 
+class="ecrm-1440">where</span> <img 
+src="OLGModel8x.svg" alt="a1,t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is the assets per young household </span><span 
+class="ecti-1440">after </span><span 
+class="ecrm-1440">their consumption</span>
+      <span 
+class="ecrm-1440">in period 1. (For convenience, we assume that there is no depreciation).</span>
+                                                                                     
+                                                                                     
+      </li>
+      <li 
+  class="enumerate" id="x1-1012x6"><span 
+class="ecrm-1440">The old in period</span> <img 
+src="OLGModel9x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">own the entire capital stock and (because they</span>
+      <span 
+class="ecrm-1440">have no bequest motive) will consume it all, so dissaving by the old</span>
+      <span 
+class="ecrm-1440">in period</span> <img 
+src="OLGModel10x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">will be</span> <img 
+src="OLGModel11x.svg" alt="NNN     a     =  K
+  t− 1 1,t− 1      t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. (The old do receive interest on</span>
+      <span 
+class="ecrm-1440">their capital, so their consumption will be</span> <img 
+src="OLGModel12x.svg" alt="Kt  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">plus the interest income</span>
+      <img 
+src="OLGModel13x.svg" alt="rK
+   t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, but the</span> <img 
+src="OLGModel14x.svg" alt="rK
+   t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">component does not aﬀect saving because it is part</span>
+      <span 
+class="ecrm-1440">of both income and consumption).</span>
+      </li>
+      <li 
+  class="enumerate" id="x1-1014x7"><span 
+class="ecrm-1440">Labor and capital markets are perfectly competitive and the aggregate</span>
+      <span 
+class="ecrm-1440">production technology is CRS,</span> <img 
+src="OLGModel15x.svg" alt="Y  =  F (K,  L)  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">(recall that this implies</span>
+      <span 
+class="ecrm-1440">that</span> <img 
+src="OLGModel16x.svg" alt="F(K,  L ) = FLL   +  FK K  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, which is </span><a 
+href="https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList/#EulersTheorem" ><span 
+class="ecrm-1440">“Euler’s Theorem”</span></a><span 
+class="ecrm-1440">.</span>
+      </li></ol>
+<!--l. 51--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">2  </span></span> <a 
+ id="x1-20002"></a><span 
+class="ecrm-1440">Analysis</span></h3>
+<!--l. 53--><p class="noindent" ><span 
+class="ecrm-1440">Let’s normalize everything by the period-</span><img 
+src="OLGModel17x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">young population</span> <img 
+src="OLGModel18x.svg" alt="NNN
+  t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, writing</span>
+<span 
+class="ecrm-1440">normalized variables in lower case. Thus the per-young-capita aggregate</span>
+<span 
+class="ecrm-1440">production function becomes</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2001r1"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel19x.svg" alt="f(kt) ≡  F (Kt, NNN t)∕NNN t = F (Kt ∕NNN t,1).
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(1)</span></td></tr></table>
+<!--l. 58--><p class="nopar" >
+                                                                                     
+                                                                                     
+<!--l. 60--><p class="indent" >  <span 
+class="ecrm-1440">The perfect competition assumption implies that wages and net interest rates</span>
+<span 
+class="ecrm-1440">are equal to the marginal products of labor and capital, respectively:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2002r2"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel20x.svg" alt="W   = f(k  ) − k f′(k ),
+  t       t     t    t
+ rt = f′(kt).
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(2)</span></td></tr></table>
+<!--l. 66--><p class="nopar" >
+<!--l. 68--><p class="indent" >  <span 
+class="ecrm-1440">To make further progress, we need to make speciﬁc assumptions about the</span>
+<span 
+class="ecrm-1440">utility function and the aggregate production function. Assume that utility is</span>
+<span 
+class="ecrm-1440">CRRA,</span> <img 
+src="OLGModel21x.svg" alt="u (∙) =  ∙1− ρ∕(1 −  ρ)  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and assume a Cobb-Douglas aggregate production</span>
+<span 
+class="ecrm-1440">function</span> <img 
+src="OLGModel22x.svg" alt="                𝜀  1− 𝜀             𝜀
+F (K,  L ) = K   L     ⇒  f(k ) = k  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+<!--l. 73--><p class="indent" >  <span 
+class="ecrm-1440">In this case we can solve for wages and interest rates:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2003r3"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel23x.svg" alt="W   =  (1 −  𝜀)k𝜀
+  t             t
+  rt =  𝜀k 𝜀− 1.
+          t
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(3)</span></td></tr></table>
+<!--l. 77--><p class="nopar" >
+<!--l. 79--><p class="indent" >  <span 
+class="ecrm-1440">The individual’s maximization problem yields the Euler equation:</span>
+                                                                                     
+                                                                                     
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2004r4"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel24x.svg" alt="  ′                 ′
+u (c1,t) =  βRt+1u  (c2,t+1).
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(4)</span></td></tr></table>
+<!--l. 82--><p class="nopar" >
+<!--l. 84--><p class="indent" >  <span 
+class="ecrm-1440">Now let’s assume that utility is logarithmic,</span> <img 
+src="OLGModel25x.svg" alt="ρ =  1  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, which implies</span>
+<span 
+class="ecrm-1440">that</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2005r5"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel26x.svg" alt="                     =0
+                   ◜-◞◟ -◝
+           W1,t-+--W2,t+1-∕Rt+1---
+   c1,t =          1 + β
+
+           W1,t---
+   c1,t =  1 + β
+
+   a1,t = W1,t  −  c1,t
+
+        = W1,t (1 −  1∕ (1 + β ))
+
+        = W1,t (β ∕(1(+  β )) )
+                          β
+        = (1 −  𝜀)k 𝜀t   -------
+                        1 + β
+=a1,t∕Ξ      [           ]
+ ◜◞ ◟◝         (1 −  𝜀)β
+ kt+1   = k 𝜀t  -----------
+               Ξ (1 +  β)
+                [            ]
+ dkt+1--= k 𝜀− 1 𝜀-(1-−-𝜀-)β   .
+  dkt       t     Ξ (1 + β )
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(5)</span></td></tr></table>
+<!--l. 94--><p class="nopar" >
+<!--l. 96--><p class="indent" >  <span 
+class="ecrm-1440">The steady-state will be the point where</span> <img 
+src="OLGModel27x.svg" alt="kt+1 =  kt  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. For convenience, deﬁne a</span>
+<span 
+class="ecrm-1440">constant</span>
+  <table 
+class="equation-star"><tr><td>
+                                  <span 
+class="cmsy-10x-x-144">𝒬 </span><span 
+class="cmr-12x-x-120">=</span> <img 
+src="OLGModel28x.svg" alt=" (1 − 𝜀 )β
+-----------
+Ξ (1 +  β )"  class="frac" align="middle"><span 
+class="cmmi-12x-x-120">,</span>
+</td></tr></table>
+<!--l. 98--><p class="nopar" >
+<span 
+class="ecrm-1440">allowing us to rewrite</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-2005r5"><span 
+class="ecrm-1440">5</span><!--tex4ht:ref: eq:ktp1 --></a><span 
+class="ecrm-1440">)</span> <span 
+class="ecrm-1440">as</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2006r6"></a>
+                                                                                     
+                                                                                     
+  <center class="math-display" >
+<img 
+src="OLGModel29x.svg" alt="            𝜀
+kt+1 =  𝒬k  t.
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(6)</span></td></tr></table>
+<!--l. 102--><p class="nopar" >
+<!--l. 104--><p class="indent" >  <span 
+class="ecrm-1440">Then the steady-state will be the point where</span> <img 
+src="OLGModel30x.svg" alt="kt+1 =  kt =  ¯k  " class="math";align="absmiddle">
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2007r7"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel31x.svg" alt="         𝜀
+¯k =  𝒬  ¯k
+        1∕(1− 𝜀)
+¯k =  𝒬        .
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(7)</span></td></tr></table>
+<!--l. 108--><p class="nopar" >
+<!--l. 110--><p class="indent" >  <span 
+class="ecrm-1440">Dynamics of the model can be analyzed using a simple ﬁgure relating the</span>
+<span 
+class="ecrm-1440">capital stock per capita in period</span> <img 
+src="OLGModel32x.svg" alt="t + 1  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">to that in period</span> <img 
+src="OLGModel33x.svg" alt="t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. The solid locus is a</span>
+<span 
+class="ecrm-1440">graph of equation</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-2005r5"><span 
+class="ecrm-1440">5</span><!--tex4ht:ref: eq:ktp1 --></a><span 
+class="ecrm-1440">)</span><span 
+class="ecrm-1440">. We depict the 45 degree line because it indicates the set of</span>
+<span 
+class="ecrm-1440">‘steady-state’ points where</span> <img 
+src="OLGModel34x.svg" alt="k    =  k
+ t+1     t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and thus any intersection of the 45</span>
+<span 
+class="ecrm-1440">degree line with the</span> <img 
+src="OLGModel35x.svg" alt="kt+1 (kt)  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">function indicates a steady-state of the</span>
+<span 
+class="ecrm-1440">model.</span>
+  <div class="figure" 
+>
+                                                                                     
+                                                                                     
+<a 
+ id="x1-20081"></a>
+                                                                                     
+                                                                                     
+<!--l. 119--><p class="noindent" > <img 
+src="../Figures/OLGModelDynamics.png" alt="pict"  
+ width="433.62pt" >
+<figcaption class="caption" ><span class="id">Figure 1:</span><span  
+class="content">Convergence of OLG Economy to Steady State</span></figcaption><!--tex4ht:label?: x1-20081 -->
+                                                                                     
+                                                                                     
+  </div>
+<!--l. 124--><p class="indent" >  <span 
+class="ecrm-1440">The experiment traced out in the ﬁgure is as follows. We start the economy in</span>
+<span 
+class="ecrm-1440">period</span> <img 
+src="OLGModel36x.svg" alt="t =  0  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">with capital per capita of</span> <img 
+src="OLGModel37x.svg" alt="k0   " class="math";align="absmiddle"><span 
+class="ecrm-1440">, which, from</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-2005r5"><span 
+class="ecrm-1440">5</span><!--tex4ht:ref: eq:ktp1 --></a><span 
+class="ecrm-1440">)</span><span 
+class="ecrm-1440">, implies a certain</span>
+<span 
+class="ecrm-1440">value</span> <img 
+src="OLGModel38x.svg" alt="k
+ 1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">for capital in period</span> <img 
+src="OLGModel39x.svg" alt="t + 1 =  1  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. Now think about period</span> <img 
+src="OLGModel40x.svg" alt="1  " class="math";align="absmiddle">
+<span 
+class="ecrm-1440">becoming</span> <img 
+src="OLGModel41x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and period</span> <img 
+src="OLGModel42x.svg" alt="2  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">becoming</span> <img 
+src="OLGModel43x.svg" alt="t +  1  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. To ﬁnd the correct level of</span>
+<span 
+class="ecrm-1440">capital implied by the model in period</span> <img 
+src="OLGModel44x.svg" alt="t + 2  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">we need to ﬁnd the point on</span>
+<span 
+class="ecrm-1440">the 45 degree line that corresponds to</span> <img 
+src="OLGModel45x.svg" alt="k1   " class="math";align="absmiddle"><span 
+class="ecrm-1440">, then go vertically up from</span>
+<span 
+class="ecrm-1440">there to ﬁnd</span> <img 
+src="OLGModel46x.svg" alt="k    =  k
+ t+1     2   " class="math";align="absmiddle"><span 
+class="ecrm-1440">. When the same set of gyrations is repeated</span>
+<span 
+class="ecrm-1440">the result is that the level of capital converges to the steady-state level</span>
+<img 
+src="OLGModel47x.svg" alt="¯k  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">3  </span></span> <a 
+ id="x1-30003"></a><span 
+class="ecrm-1440">Social Optimum</span></h3>
+<!--l. 137--><p class="noindent" ><span 
+class="ecrm-1440">We have determined the outcome that will arise in a perfectly competitive</span>
+<span 
+class="ecrm-1440">economy in which households optimally choose their behavior given market</span>
+<span 
+class="ecrm-1440">prices with no government intervention.</span>
+<!--l. 141--><p class="indent" >  <span 
+class="ecrm-1440">Often in macroeconomic analysis this constellation of assumptions yields a</span>
+<span 
+class="ecrm-1440">conclusion that the steady state is optimal (and dynamics are also optimal)</span>
+<span 
+class="ecrm-1440">according to some plausible criteria. We now examine the optimality properties</span>
+<span 
+class="ecrm-1440">of the OLG model outcome.</span>
+<!--l. 146--><p class="indent" >  <span 
+class="ecrm-1440">As a preliminary, let’s deﬁne the lifetime utility experienced by the young</span>
+<span 
+class="ecrm-1440">generation at time</span> <img 
+src="OLGModel48x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">as</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3001r8"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel49x.svg" alt="v  =  u(c  ) +  βu (c     ).
+ t       1,t         2,t+1
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(8)</span></td></tr></table>
+<!--l. 152--><p class="nopar" >
+                                                                                     
+                                                                                     
+<!--l. 154--><p class="indent" >  <span 
+class="ecrm-1440">Suppose our deﬁnition of optimality reﬂects the choices that would be made by</span>
+<span 
+class="ecrm-1440">a benevolent social planner who maximizes a social welfare function of the</span>
+<span 
+class="ecrm-1440">form</span><span class="footnote-mark"><a 
+href="OLGModel3.html#fn2x0"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-3002f2"></a>  
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3003r9"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel52x.svg" alt="                   ∑∞
+Vt  =  βu (c2,t) +      ℶnvt+n
+                   n=0
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(9)</span></td></tr></table>
+<!--l. 159--><p class="nopar" >
+<span 
+class="ecrm-1440">subject to the economy’s aggregate resource constraint</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3004r10"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel53x.svg" alt="K◟t--+--F(◝K◜t,-NNN-t)◞ = K◟t+1---+-NNN--tc1◝,◜t-+-NNN--t−-1c2,t◞
+      Sources
+                                 Uses
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(10)</span></td></tr></table>
+<!--l. 164--><p class="nopar" >
+<span 
+class="ecrm-1440">where the Hebrew letter</span> <img 
+src="OLGModel54x.svg" alt="ℶ  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">reﬂects the social planner’s discount factor and the</span>
+<span 
+class="ecrm-1440">planner must allocate the society’s resources (“Sources”) between consumption of</span>
+                                                                                     
+                                                                                     
+<span 
+class="ecrm-1440">the two generations alive at time</span> <img 
+src="OLGModel55x.svg" alt="t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and the capital stock in period</span> <img 
+src="OLGModel56x.svg" alt="t +  1  " class="math";align="absmiddle">
+<span 
+class="ecrm-1440">(“Uses”).</span>
+<!--l. 170--><p class="indent" >  <span 
+class="ecrm-1440">The idea is that the social planner cares about every generation’s lifetime</span>
+<span 
+class="ecrm-1440">happiness, but discounts the happiness of future generations. (We will discuss</span>
+<span 
+class="ecrm-1440">why discounting is necessary later in the class).</span>
+<!--l. 175--><p class="indent" >  <span 
+class="ecrm-1440">It is possible to show (using methods not described in this handout;</span>
+<span 
+class="ecrm-1440">see</span><span 
+class="ecrm-1440"> </span><a 
+href="#Xblanchard&fischer:text"><span 
+class="ecrm-1440">Blanchard and Fischer</span></a><span 
+class="ecrm-1440"> (</span><a 
+href="#Xblanchard&fischer:text"><span 
+class="ecrm-1440">1989</span></a><span 
+class="ecrm-1440">) for details) that the socially optimal steady</span>
+<span 
+class="ecrm-1440">state is characterized by the equation</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3005r11"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel57x.svg" alt="      ′  ∗         − 1
+1 +  f (¯k ) =  Ξ ℶ
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(11)</span></td></tr></table>
+<!--l. 179--><p class="nopar" >
+<!--l. 181--><p class="indent" >  <span 
+class="ecrm-1440">In the case of our Cobb-Douglas production function, this becomes</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3006r12"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel58x.svg" alt="  ∗ 𝜀− 1        − 1
+(¯k )    𝜀 = Ξ ℶ    −  1
+            (             )1 ∕(𝜀− 1)
+        ∗      Ξℶ − 1 − 1
+      ¯k   =    -----------         .
+                   𝜀
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(12)</span></td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 188--><p class="nopar" >
+<!--l. 190--><p class="indent" >  <span 
+class="ecrm-1440">Comparing this to the outcome that will actually arise,</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3007r13"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel59x.svg" alt="     (            )
+       Ξ (1 +  β)   1∕(𝜀− 1)
+¯k =    -----------         ,
+       (1 −  𝜀)β
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(13)</span></td></tr></table>
+<!--l. 193--><p class="nopar" >
+<span 
+class="ecrm-1440">our point is that there is no particular relationship between the socially</span>
+<span 
+class="ecrm-1440">optimal outcome and the actual equilibrium outcome that will arise if the</span>
+<span 
+class="ecrm-1440">social planner is not involved. The actual outcome could have too little</span>
+<span 
+class="ecrm-1440">capital or too much, and there is no reason to expect it to be the “right”</span>
+<span 
+class="ecrm-1440">amount.</span>
+<!--l. 200--><p class="indent" >  <span 
+class="ecrm-1440">You might respond by saying that our deﬁnition of optimality here</span>
+<span 
+class="ecrm-1440">is too strong; we might hope that the economy would at least be able</span>
+<span 
+class="ecrm-1440">to avoid a Pareto ineﬃcient outcome, even if we can’t expect perfect</span>
+<span 
+class="ecrm-1440">optimality according to the preferences of some mythical Godlike “social</span>
+<span 
+class="ecrm-1440">planner.”</span>
+<!--l. 206--><p class="indent" >  <span 
+class="ecrm-1440">It turns out, however, that even Pareto eﬃciency is not guaranteed. (In this</span>
+<span 
+class="ecrm-1440">context, Pareto eﬃciency must be deﬁned across generations: The economy is</span>
+<span 
+class="ecrm-1440">Pareto eﬃcient if there is no way to make one generation better oﬀ without</span>
+<span 
+class="ecrm-1440">making another generation worse oﬀ).</span>
+<!--l. 211--><p class="indent" >  <span 
+class="ecrm-1440">To examine Pareto eﬃciency, start by rewriting the aggregate DBC by dividing</span>
+<span 
+class="ecrm-1440">by the size of the labor force at time</span> <img 
+src="OLGModel60x.svg" alt="t  " class="math";align="absmiddle"><span 
+class="ecrm-1440">:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3008r14"></a>
+                                                                                     
+                                                                                     
+  <center class="math-display" >
+<img 
+src="OLGModel61x.svg" alt="kt +  f(kt ) = Ξkt+1  +  c1,t + c2,t∕ Ξ
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(14)</span></td></tr></table>
+<!--l. 216--><p class="nopar" >
+<!--l. 218--><p class="indent" >  <span 
+class="ecrm-1440">Deﬁne an index of aggregate per capita consumption as</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3009r15"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel62x.svg" alt="c  =  c   +  c  ∕Ξ
+ t     1,t     2,t
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(15)</span></td></tr></table>
+<!--l. 222--><p class="nopar" >
+<!--l. 224--><p class="indent" >  <span 
+class="ecrm-1440">In steady state,</span> <img 
+src="OLGModel63x.svg" alt="kt+1 =  kt =  ¯k  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, so if</span> <img 
+src="OLGModel64x.svg" alt="¯c " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is the steady-state level of</span> <img 
+src="OLGModel65x.svg" alt="ct  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">then</span>
+<span 
+class="ecrm-1440">the accumulation equation implies</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3010r16"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel66x.svg" alt=" k¯ + f(¯k ) = Ξ ¯k +  ¯c
+
+      f(¯k ) = (Ξ  − 1 )¯k +  ¯c
+              ◟--◝ ◜--◞
+                  ξ
+  ¯      ¯
+f(k) −  ξk =  ¯c
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(16)</span></td></tr></table>
+<!--l. 231--><p class="nopar" >
+<!--l. 233--><p class="indent" >  <span 
+class="ecrm-1440">Now consider the eﬀects of a change in</span> <img 
+src="OLGModel67x.svg" alt="¯
+k  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">on</span> <img 
+src="OLGModel68x.svg" alt="¯c " class="math";align="absmiddle"><span 
+class="ecrm-1440">:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3011r17"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel69x.svg" alt="(    )
+  d-¯c   =  f′(¯k) − ξ.
+  d ¯k
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(17)</span></td></tr></table>
+<!--l. 236--><p class="nopar" >
+<!--l. 238--><p class="indent" >  <span 
+class="ecrm-1440">There exists a</span> <img 
+src="OLGModel70x.svg" alt="¯k  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">which maximizes per-capita steady-state consumption:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3012r18"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel71x.svg" alt="        ¯       ¯
+max¯    f(k ) − ξ k
+  k
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(18)</span></td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 242--><p class="nopar" >
+<span 
+class="ecrm-1440">whose solution is obtained from the FOC</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3013r19"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel72x.svg" alt="𝜀¯k 𝜀− 1 = ξ
+
+   ¯k∗∗ =  (ξ∕𝜀 )1∕(𝜀− 1),
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(19)</span></td></tr></table>
+<!--l. 247--><p class="nopar" >
+<span 
+class="ecrm-1440">and note that this means that for</span> <img 
+src="OLGModel73x.svg" alt="      ∗∗
+¯k ≥  ¯k " class="math";align="absmiddle"> <span 
+class="ecrm-1440">an extra bit of capital actually</span>
+<span 
+class="ecrm-1440">requires a </span><span 
+class="ecti-1440">decline </span><span 
+class="ecrm-1440">in steady-state consumption. An economy in this circumstance</span>
+<span 
+class="ecrm-1440">of excessive saving is called ‘dynamically ineﬃcient.’</span>
+<!--l. 253--><p class="indent" >  <span 
+class="ecrm-1440">Note further that there is actually a</span> <img 
+src="OLGModel74x.svg" alt="¯k  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">so large that consumption would have</span>
+<span 
+class="ecrm-1440">to be zero:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-3014r20"></a>
+  <center class="math-display" >
+<img 
+src="OLGModel75x.svg" alt="  ¯k 𝜀 = ξk
+¯𝜀− 1
+k     = ξ
+   ¯      1∕(𝜀− 1)
+   k  = ξ        .
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(20)</span></td></tr></table>
+<!--l. 259--><p class="nopar" >
+<!--l. 261--><p class="indent" >  <span 
+class="ecrm-1440">These points are illustrated graphically in the remaining ﬁgure.</span>
+                                                                                     
+                                                                                     
+  <div class="figure" 
+>
+                                                                                     
+                                                                                     
+<a 
+ id="x1-30152"></a>
+                                                                                     
+                                                                                     
+<figcaption class="caption" ><span class="id">Figure 2:</span><span  
+class="content">Gross and Net Per Capita Output as a Function of <img 
+src="OLGModel76x.svg" alt="k  " class="math";align="absmiddle"></span></figcaption><!--tex4ht:label?: x1-30152 -->
+<!--l. 265--><p class="noindent" > <img 
+src="../Figures/fnkBoth.png" alt="pict"  
+ width="433.62pt" >
+                                                                                     
+                                                                                     
+  </div>
+                                                                                     
+                                                                                     
+  <h3 class="likesectionHead"><a 
+ id="x1-40003"></a><span 
+class="ecrm-1440">References</span></h3>
+<!--l. 11--><p class="noindent" >
+  <div class="thebibliography">
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xblanchard&fischer:text"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">B</span><span 
+class="small-caps">l</span><span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">c</span><span 
+class="small-caps">h</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">d</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">O</span><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">v</span><span 
+class="small-caps">i</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span> <span 
+class="small-caps">S</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">l</span><span 
+class="small-caps">e</span><span 
+class="small-caps">y</span> <span 
+class="small-caps">F</span><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span><span 
+class="small-caps">c</span><span 
+class="small-caps">h</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span> </span><span 
+class="ecrm-1440">(1989): </span><span 
+class="ecti-1440">Lectures on</span>
+  <span 
+class="ecti-1440">Macroeconomics</span><span 
+class="ecrm-1440">. MIT Press.</span>
+  </p>
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xdiamond:olg"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">D</span><span 
+class="small-caps">i</span><span 
+class="small-caps">a</span><span 
+class="small-caps">m</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">,</span>             <span 
+class="small-caps">P</span><span 
+class="small-caps">e</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span></span><span 
+class="eccc1440-"> <span 
+class="small-caps">A</span><span 
+class="small-caps">.</span>             </span><span 
+class="ecrm-1440">(1965):              “National</span>
+  <span 
+class="ecrm-1440">Debt in a Neoclassical Growth Model,” </span><span 
+class="ecti-1440">American Economic Review</span><span 
+class="ecrm-1440">, 55,</span>
+  <span 
+class="ecrm-1440">1126–1150, </span><a 
+href="http://www.jstor.org/stable/1809231" class="url" ><span 
+class="ectt-1440">http://www.jstor.org/stable/1809231</span></a><span 
+class="ecrm-1440">.</span>
+  </p>
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XjeffersonOLG"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">J</span><span 
+class="small-caps">e</span><span 
+class="small-caps">f</span><span 
+class="small-caps">f</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">s</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span><span 
+class="small-caps">,</span>      <span 
+class="small-caps">T</span><span 
+class="small-caps">h</span><span 
+class="small-caps">o</span><span 
+class="small-caps">m</span><span 
+class="small-caps">a</span><span 
+class="small-caps">s</span>     </span><span 
+class="ecrm-1440">(1789):      “‘The      Earth      Belongs</span>
+  <span 
+class="ecrm-1440">to      the      Living’:      A      Letter      to      James      Madison,”</span>
+  <a 
+href="http://infomotions.com/etexts/literature/american/1700-1799/jefferson-letters-256.htm" class="url" ><span 
+class="ectt-1440">http://infomotions.com/etexts/literature/american/1700-1799/jefferson-letters-256.htm</span></a><span 
+class="ecrm-1440">.</span>
+  </p>
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xsamuelson:olg"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">S</span><span 
+class="small-caps">a</span><span 
+class="small-caps">m</span><span 
+class="small-caps">u</span><span 
+class="small-caps">e</span><span 
+class="small-caps">l</span><span 
+class="small-caps">s</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">P</span><span 
+class="small-caps">a</span><span 
+class="small-caps">u</span><span 
+class="small-caps">l</span></span><span 
+class="eccc1440-"> <span 
+class="small-caps">A</span><span 
+class="small-caps">.</span> </span><span 
+class="ecrm-1440">(1958): “An exact consumption loan model of</span>
+  <span 
+class="ecrm-1440">interest  with  or  without  the  social  contrivance  of  money,”  </span><span 
+class="ecti-1440">Journal of</span>
+  <span 
+class="ecti-1440">Political Economy</span><span 
+class="ecrm-1440">, 66, 467–482.</span>
+  </p>
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XweilSamuelson"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">W</span><span 
+class="small-caps">e</span><span 
+class="small-caps">i</span><span 
+class="small-caps">l</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">P</span><span 
+class="small-caps">h</span><span 
+class="small-caps">i</span><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">p</span><span 
+class="small-caps">p</span><span 
+class="small-caps">e</span> </span><span 
+class="ecrm-1440">(2008): “Overlapping Generations: The First Jubilee,”</span>
+  <span 
+class="ecti-1440">Journal of Economic Perspectives</span><span 
+class="ecrm-1440">, 22(4), 115–34.</span>
+</p>
+  </div>
+   
+</body> 
+</html>
+                                                                                     
+
+
