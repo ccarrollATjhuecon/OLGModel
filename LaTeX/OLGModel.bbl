@@ -1,0 +1,37 @@
+\providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+\ifx\undefined\BySame
+\newcommand{\BySame}{\leavevmode\rule[.5ex]{3em}{.5pt}\ }
+\fi
+\ifx\undefined\textsc
+\newcommand{\textsc}[1]{{\sc #1}}
+\newcommand{\emph}[1]{{\em #1\/}}
+\let\tmpsmall\small
+\renewcommand{\small}{\tmpsmall\sc}
+\fi
+\begin{thebibliography}{}
+
+\harvarditem[Blanchard and Fischer]{Blanchard and
+  Fischer}{1989}{blanchard&fischer:text}
+\textsc{Blanchard, Olivier,  {and} Stanley Fischer}  (1989): \emph{Lectures on
+  Macroeconomics}. MIT Press.
+
+\harvarditem[Diamond]{Diamond}{1965}{diamond:olg}
+\textsc{Diamond, Peter~A.}  (1965): ``National Debt in a Neoclassical Growth
+  Model,'' \emph{American Economic Review}, 55, 1126--1150,
+  \url{http://www.jstor.org/stable/1809231}.
+
+\harvarditem[Jefferson]{Jefferson}{1789}{jeffersonOLG}
+\textsc{Jefferson, Thomas}  (1789): ```The Earth Belongs to the Living': A
+  Letter to James Madison,''
+  \url{http://infomotions.com/etexts/literature/american/1700-1799/jefferson-letters-256.htm}.
+
+\harvarditem[Samuelson]{Samuelson}{1958}{samuelson:olg}
+\textsc{Samuelson, Paul~A.}  (1958): ``An exact consumption loan model of
+  interest with or without the social contrivance of money,'' \emph{Journal of
+  Political Economy}, 66, 467--482.
+
+\harvarditem[Weil]{Weil}{2008}{weilSamuelson}
+\textsc{Weil, Philippe}  (2008): ``Overlapping Generations: The First
+  Jubilee,'' \emph{Journal of Economic Perspectives}, 22(4), 115--34.
+
+\end{thebibliography}
